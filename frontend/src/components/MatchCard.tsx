@@ -74,12 +74,12 @@ const MatchCard: React.FC<Props> = ({ match }) => {
             component="img"
             src={match.homeTeam.crest}
             alt={match.homeTeam.name}
-            sx={{ width: 42, height: 42, objectFit: 'contain' }}
+            sx={{ width: 48, height: 48, objectFit: 'contain' }}
             onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
               e.currentTarget.style.display = 'none';
             }}
           />
-          <Typography variant="body2" sx={{ fontWeight: 700, textAlign: 'center' }}>
+          <Typography variant="body1" sx={{ fontWeight: 700, textAlign: 'center' }}>
             {match.homeTeam.shortName || match.homeTeam.name}
           </Typography>
         </Box>
@@ -93,12 +93,12 @@ const MatchCard: React.FC<Props> = ({ match }) => {
             component="img"
             src={match.awayTeam.crest}
             alt={match.awayTeam.name}
-            sx={{ width: 42, height: 42, objectFit: 'contain' }}
+            sx={{ width: 48, height: 48, objectFit: 'contain' }}
             onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
               e.currentTarget.style.display = 'none';
             }}
           />
-          <Typography variant="body2" sx={{ fontWeight: 700, textAlign: 'center' }}>
+          <Typography variant="body1" sx={{ fontWeight: 700, textAlign: 'center' }}>
             {match.awayTeam.shortName || match.awayTeam.name}
           </Typography>
         </Box>
