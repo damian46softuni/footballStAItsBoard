@@ -1,0 +1,38 @@
+I want to develop Footbal matches statistics and predictions application.
+It should display todays footbal maches, view deteail information abot footbal match with statistics and prediction.
+It shoud have an intuitive design and suport filtration, sorting, diferent views, ... 
+
+The application will be called "footballStAItsBoard" (the casing matters)
+
+Tech stack:
+- For the backend: Express.js + MongoDB
+- For the forntend: React + Redux + matirial UI
+- There will be no authentication 
+- Let's use TypeScript for backend and forntend
+Keep in mind that the current version on the server is v22.11.0 for node, and 10.9.0 for npm.
+- Use latest stable versions for all necessary package
+- MongoDB will be install locally at later point
+
+
+I need you to help me  prepare the initial project setup, so I can later develop all needed functionality one by one.
+
+For information about football matches, such as a list of matches and details about football matches, we will get them from an external API, after which we will process the data in our backend, after which our backend will serve them to our frontend app.
+The authorization to the external API will be made via a token, which we should configure in a dotenv file.
+
+Let for now make initial setup of application, all needed functionality one by one later
+
+* PLAN - Clooud Opus 4.6
+====================================================================================================================
+"Start Implementation". At the end validate that the both back- and fornt-end start successfuly nd listens to the specifed ports 
+* PLAN - Clooud Opus 4.6
+
+====================================================================================================================
+
+# Terminal 1
+cd backend && npm run dev
+
+# Terminal 2
+cd frontend && npm start
+
+====================================================================================================================
+
