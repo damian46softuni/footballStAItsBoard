@@ -87,14 +87,14 @@ const MatchesList: React.FC = () => {
                 component="img"
                 src={group.competitionEmblem}
                 alt={group.competitionName}
-                sx={{ width: 24, height: 24, objectFit: 'contain' }}
+                sx={{ width: 28, height: 28, objectFit: 'contain' }}
                 onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
                   e.currentTarget.style.display = 'none';
                 }}
               />
             ) : null}
 
-            <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>
+            <Typography variant="h6" sx={{ fontWeight: 800, lineHeight: 1.2 }}>
               {group.competitionName}
             </Typography>
 
@@ -104,13 +104,13 @@ const MatchesList: React.FC = () => {
                   component="img"
                   src={group.areaFlag}
                   alt={group.areaName}
-                  sx={{ width: 18, height: 18, objectFit: 'contain' }}
+                  sx={{ width: 22, height: 22, objectFit: 'contain' }}
                   onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
                     e.currentTarget.style.display = 'none';
                   }}
                 />
               ) : null}
-              <Typography variant="caption" color="text.secondary">
+              <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 500 }}>
                 {group.areaName}
               </Typography>
             </Box>

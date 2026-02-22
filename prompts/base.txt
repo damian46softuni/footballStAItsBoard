@@ -98,7 +98,15 @@ Let's display all matches on the frontend homepage of the project using /api/mat
 
 We want a nice clean visualization, presenting all football matches, with the date and time of their start, as well as the names of the country and the championships with their flags and icons, the names of the teams and their emblems.
 
+* PLAN - Clooud Opus 4.6
+* Implementation GPT-5.3-Codex
+====================================================================================================================
 
+Can we make the header static and always sit at the top of the page?
+* AGENT GPT-5.3-Codex
 
+====================================================================================================================
+if possible, we could slightly enlarge the icons and names of the championships and the country
+* AGENT GPT-5.3-Codex
 
-
+====================================================================================================================
