@@ -208,3 +208,6 @@ We want a nice clean visualization, presenting all data like home page + additio
 * Implementation GPT-5.3-Codex
 
 ====================================================================================================================
+
+
+Let's in backend app to add functionaliti to save all responses from the external API in MongoDB, and on the next necessary request, if they are in the database and they were saved less than an hour ago, to get the data from the database, if not, to make a request to the external API and then save them to the database again.

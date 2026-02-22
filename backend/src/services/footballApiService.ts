@@ -1,5 +1,6 @@
 import { config } from '../config';
 import { Match, MatchesResponse, MatchDetail, MatchDetailResponse, SquadMember, Prediction } from '../types/matches';
+import { getCached, setCached } from './cacheService';
 
 const EXTERNAL_API_URL = 'https://api.football-data.org/v4/matches';
 
@@ -35,7 +36,14 @@ function mapMatch(raw: any): Match {
   };
 }
 
+const MATCHES_CACHE_KEY = 'matches';
+
 export async function fetchMatches(): Promise<MatchesResponse> {
+  const cached = await getCached(MATCHES_CACHE_KEY);
+  if (cached) {
+    return cached as MatchesResponse;
+  }
+
   const response = await fetch(EXTERNAL_API_URL, {
     headers: {
       'X-Auth-Token': config.externalApiToken,
@@ -50,11 +58,14 @@ export async function fetchMatches(): Promise<MatchesResponse> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const data: any = await response.json();
 
-  return {
+  const result: MatchesResponse = {
     filters: data.filters ?? {},
     resultSet: data.resultSet ?? {},
     matches: (data.matches ?? []).map(mapMatch),
   };
+
+  await setCached(MATCHES_CACHE_KEY, result);
+  return result;
 }
 
 // --- Match Detail ---
@@ -83,6 +94,12 @@ function computeMedian(values: number[]): number {
 }
 
 export async function fetchMatchDetail(matchId: string): Promise<MatchDetailResponse> {
+  const cacheKey = `match_detail_${matchId}`;
+  const cached = await getCached(cacheKey);
+  if (cached) {
+    return cached as MatchDetailResponse;
+  }
+
   const EXTERNAL_BASE = 'https://api.football-data.org/v4';
 
   // Step 1 & 2: head2head + match details (parallel)
@@ -168,5 +185,7 @@ export async function fetchMatchDetail(matchId: string): Promise<MatchDetailResp
     prediction,
   };
 
-  return { match: matchDetail };
+  const result: MatchDetailResponse = { match: matchDetail };
+  await setCached(cacheKey, result);
+  return result;
 }
