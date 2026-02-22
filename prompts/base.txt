@@ -45,3 +45,50 @@ docker compose up -d
 Mongo DB Compass
 
 ====================================================================================================================
+
+
+I want you to create an API call in the backend that represents all available matches.
+The API Response should have the following information + an array of match objects.
+Each match object should have the following fields:
+
+{
+    "id": id of the mache (number),
+    "utcDate": utc Date,
+    "homeTeam": {
+        "id": id of the tean (number),
+        "name": team name (string),
+        "shortName": team short name (string),
+        "crest": logo of the team (string),
+    },
+    "awayTeam": {
+        "id": id of the tean (number),
+        "name": team name (string),
+        "shortName": team short name (string),
+        "crest": logo of the team (string),
+    },
+     "area": {
+        "id": id of area (number),
+        "name": name of area (string),
+        "code": cod of area (string),
+        "flag": area flag (string)
+    },
+    "competition": {
+        "id": id of competition string (string),
+        "name": name of competition (string),
+        "code": code of competition (string),
+        "emblem": emblem of competition (string)
+    },
+}
+
+
+The necessary information for the response of our new API will have to be taken from an external API:
+url: https://api.football-data.org/v4/matches
+To access the external API, the application must authenticate itself using the following header in the request:
+X-Auth-Token=EXTERNAL_API_TOKEN
+where the value of EXTERNAL_API_TOKEN should be taken from dotenv
+
+Documentation for the external API can be found here: https://www.football-data.org/documentation/quickstart
+
+* PLAN - Clooud Opus 4.6
+====================================================================================================================
+

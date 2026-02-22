@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import { config } from './config';
+import matchesRouter from './routes/matches';
 
 const app = express();
 
@@ -16,6 +17,9 @@ app.use(express.json());
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
+
+// Matches route
+app.use('/api/matches', matchesRouter);
 
 // Connect to MongoDB
 mongoose
