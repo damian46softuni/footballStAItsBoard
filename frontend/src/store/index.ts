@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
+import matchesReducer from './matchesSlice';
 
 export const store = configureStore({
   reducer: {
-    // Slices will be added here as features are developed
+    matches: matchesReducer,
   },
 });
 

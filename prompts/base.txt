@@ -47,8 +47,8 @@ Mongo DB Compass
 ====================================================================================================================
 
 
-I want you to create an API call in the backend that represents all available matches.
-The API Response should have the following information + an array of match objects.
+I want you to create an API call in the backend that return all available matches.
+The API Response should have the needed information + an array of match objects.
 Each match object should have the following fields:
 
 {
@@ -91,4 +91,14 @@ Documentation for the external API can be found here: https://www.football-data.
 
 * PLAN - Clooud Opus 4.6
 ====================================================================================================================
+
+
+Let's now display the new backend API endpoint for listing all matches on the frontend.
+Let's display all matches on the frontend homepage of the project using /api/matches
+
+We want a nice clean visualization, presenting all football matches, with the date and time of their start, as well as the names of the country and the championships with their flags and icons, the names of the teams and their emblems.
+
+
+
+
 
