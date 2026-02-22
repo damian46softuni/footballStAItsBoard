@@ -110,3 +110,101 @@ if possible, we could slightly enlarge the icons and names of the championships 
 * AGENT GPT-5.3-Codex
 
 ====================================================================================================================
+
+
+I want to create a new API endpoint for a football match detail page.
+The API will expect to receve matchId parameter
+The API Response should have the needed information + an match objects.
+Мatch object should have the following fields:
+{
+    "id": id of the mache (number),
+    "utcDate": utc Date,
+    "homeTeam": {
+        "id": id of the tean (number),
+        "name": team name (string),
+        "shortName": team short name (string),
+        "crest": logo of the team (string),
+        "squad":{
+            "id": number,
+            "name": string,
+            "position": string,
+            "dateOfBirth": string,
+            "nationality": string
+        }[]
+    },
+    "awayTeam": {
+        "id": id of the tean (number),
+        "name": team name (string),
+        "shortName": team short name (string),
+        "crest": logo of the team (string),
+        "squad":{
+            "id": number,
+            "name": string,
+            "position": string,
+            "dateOfBirth": string,
+            "nationality": string
+        }[]
+    },
+     "area": {
+        "id": id of area (number),
+        "name": name of area (string),
+        "code": cod of area (string),
+        "flag": area flag (string)
+    },
+    "competition": {
+        "id": id of competition string (string),
+        "name": name of competition (string),
+        "code": code of competition (string),
+        "emblem": emblem of competition (string)
+    },
+    "prediction": {
+        "score": {
+            "fullTime": {
+                "home": number,
+                "away": number
+            },
+        }
+    }
+}
+
+The necessary information for the response of our new API will have to be taken from an external API:
+1) https://api.football-data.org/v4/matches/{matchId}/head2head
+
+matchId - from the request
+
+2.) https://api.football-data.org/v4/matches/{matchId}
+matchId - from the request
+
+3.) https://api.football-data.org/v4/competitions/{competitionsId}/standings
+competitionsId - form 2nd call response -> competition->code
+
+4.) for the home https://api.football-data.org/v4/teams/{teamId}
+teamId form 2nd call response -> homeTeam->id
+
+5.) for the away team https://api.football-data.org/v4/teams/{teamId}
+teamId form 2nd call response -> awayTeam->id
+
+
+for the section "prediction"
+we need to calculate from the first call response
+
+"matches" array -> for each matche we need calculate median of score
+
+for home and for away
+the median must be a integer 
+
+* PLAN - Clooud Opus 4.6
+
+====================================================================================================================
+
+Let's now display the new backend API endpoint for match details  page on the frontend.
+
+Lets make new page for match details. First we need to make all matches from home page links to the new page with param match id
+we need to get all infromation from new backend api call /api/matches/{matchId}
+
+We want a nice clean visualization, presenting all data like home page + additional inforamation. Let preoritise preditiction.
+
+* PLAN - Clooud Opus 4.6
+* Implementation GPT-5.3-Codex
+
+====================================================================================================================
