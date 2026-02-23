@@ -18,8 +18,10 @@ const initialState: MatchesState = {
   error: null,
 };
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || '';
+
 export const fetchMatches = createAsyncThunk('matches/fetchAll', async () => {
-  const { data } = await axios.get<MatchesResponse>('/api/matches');
+  const { data } = await axios.get<MatchesResponse>(`${API_BASE_URL}/api/matches`);
   return data;
 });
 

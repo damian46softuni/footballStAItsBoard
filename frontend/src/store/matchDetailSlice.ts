@@ -14,11 +14,13 @@ const initialState: MatchDetailState = {
 	error: null,
 };
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || '';
+
 export const fetchMatchDetail = createAsyncThunk<MatchDetail, number, { rejectValue: string }>(
 	'matchDetail/fetchMatchDetail',
 	async (matchId, { rejectWithValue }) => {
 		try {
-			const response = await axios.get<MatchDetailResponse>(`/api/matches/${matchId}`);
+			const response = await axios.get<MatchDetailResponse>(`${API_BASE_URL}/api/matches/${matchId}`);
 			return response.data.match;
 		} catch (error) {
 			if (axios.isAxiosError(error)) {
